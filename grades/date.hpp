@@ -24,11 +24,11 @@ public:
     std::string toString() const;
 
     //setters
-    void setYear(const int);
-    void setMonth(const int);
-    void setDay(const int);
+    void setYear(const int&);
+    void setMonth(const int&);
+    void setDay(const int&);
 
-    //Operadores de comparacion entre objetos
+    //Operadores relacionales
     bool operator == (const Date&) const;
     bool operator != (const Date&) const;
     bool operator <  (const Date&) const;
