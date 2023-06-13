@@ -2,8 +2,6 @@
 
 using namespace std;
 
-Student::Student() { };
-
 //se toman los valores del constructor de cada elemento (delegacion de constructores)
 Student::Student(const Student& s) : code(s.code),name(s.name),birthday(s.birthday),career(s.career),startDate(s.startDate),grade(s.grade)  {}
 
@@ -51,7 +49,7 @@ string Student::toString() const {
     result += "|";
     result += to_string(grade);
 
-    return result
+    return result;
 }
 
 //setters
@@ -121,6 +119,6 @@ istream& operator >> (istream& is, Student& s){
     is>>s.startDate;
     getline(is,myStr);
     s.grade = atof(myStr.c_str());
-    
+
     return is;
 }

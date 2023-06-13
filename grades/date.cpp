@@ -76,7 +76,7 @@ ostream& operator << (ostream& os, Date& d){
     os << d.month << endl;
     os << d.day << endl;
 
-    return os
+    return os;
 }
 istream& operator >> (istream& is, Date& d){
     string mystr;

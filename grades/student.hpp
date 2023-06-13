@@ -17,8 +17,8 @@ private:
     float grade;
 public:
     //constructores
-    Student(){}
-    Student(const Student&){} //constructor copia
+    Student() = default;
+    Student(const Student&); //constructor copia
     //getters
     std::string getcode() const;
     Name getName() const;
@@ -34,7 +34,7 @@ public:
     void setBirthday(const Date&);
     void setCareer(const std::string&);
     void setStartDate(const Date&);
-    void setGrade(const std::string&);
+    void setGrade(const float&);
 
     //operadores relaciones
     Student& operator = (const Student&);

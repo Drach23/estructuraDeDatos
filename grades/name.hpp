@@ -10,7 +10,7 @@ private:
     std::string lastname;
 public:
     //constructores
-    Name(){};
+    Name();
     Name(const Name&); //Constructor copia
     //getters
     std::string getFirstname() const;

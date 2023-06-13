@@ -2,8 +2,8 @@
 
 using namespace std;
 //constructores
-Name::Name(){ };
 
+Name::Name(){};
 Name::Name(const Name& n) : lastname(n.lastname), firstname(n.firstname){}
 
 Name& Name:: operator = (const Name& n){
@@ -57,4 +57,5 @@ ostream& operator << (ostream& os,Name& n){
 istream& operator >> (istream& is, Name& n){
     getline(is,n.lastname, ' ');
     getline(is,n.firstname);
+    return is;
 }
