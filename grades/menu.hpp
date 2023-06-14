@@ -10,7 +10,7 @@
 class Menu{
 protected:
     Student students[10];
-    int numStudents;
+    int numStudents = 0;
 public:
     Menu();
     void start();

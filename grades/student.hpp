@@ -17,7 +17,7 @@ private:
     float grade;
 public:
     //constructores
-    Student() = default;
+    Student();
     Student(const Student&); //constructor copia
     //getters
     std::string getcode() const;

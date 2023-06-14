@@ -36,6 +36,7 @@ void Menu::addStudent(){
     cin>>cant;
     cin.ignore();
     for (int i = 0; i < cant; ++i) {
+        Student ;
         cout<<"\tIngresa los datos del alumno"<<endl<<endl;
 
         cout<<"Ingresa el codigo del alumno: ";

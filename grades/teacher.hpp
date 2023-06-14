@@ -14,6 +14,11 @@ private:
     std::string subject;
     std::string department;
 public:
+    Teacher();
+    Teacher(const Teacher&);
+
+    //getters
+
 
 
 };

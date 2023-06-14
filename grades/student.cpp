@@ -2,6 +2,7 @@
 
 using namespace std;
 
+Student::Student(){}
 //se toman los valores del constructor de cada elemento (delegacion de constructores)
 Student::Student(const Student& s) : code(s.code),name(s.name),birthday(s.birthday),career(s.career),startDate(s.startDate),grade(s.grade)  {}
 
