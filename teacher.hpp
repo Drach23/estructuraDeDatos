@@ -37,7 +37,9 @@ public:
 
     //operadores relacionales
     Teacher& operator = (const Teacher &);
-
+    
+    bool operator ==(const Teacher &);
+    bool operator !=(const Teacher &);
     bool operator < (const Teacher &);
     bool operator <= (const Teacher &);
     bool operator > (const Teacher &);
@@ -45,8 +47,5 @@ public:
 
     friend std::ostream& operator << (std::ostream &, Teacher &);
     friend std::istream& operator >> (std::istream &, Teacher &);
-
-
-
 };
 #endif //C_TEACHER_HPP
