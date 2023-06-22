@@ -9,6 +9,7 @@ private:
     int  credits;
     std::string schedule;
 public:
+    //Constructores
     Subject();
     Subject(const Subject&);
 
@@ -30,6 +31,7 @@ public:
     Subject& operator = (const Subject&);
 
     bool operator ==(const Subject&) const;
+    bool operator !=(const Subject&)const;
     bool operator < (const Subject&) const;
     bool operator <= (const Subject&) const;
     bool operator > (const Subject&) const;
