@@ -32,13 +32,13 @@ string Subject::toString() const {
     result += "|";
     result += course;
     result += "|";
-    result += credits;
+    result += to_string(credits);
     result += "|";
     result += schedule;
 
     return result;
 }
- 
+
 //setters
 void Subject::setCode(const std::string& c) {
     code = c;
@@ -53,6 +53,12 @@ void Subject::setSchedule(const std::string& s) {
     schedule = s;
 }
 // operadores relacionales:
+bool Subject::operator==(const Subject &s) const{
+    return code ==s.code;
+}
+bool Subject::operator!=(const Subject &s) const{
+    return code != s.code;
+}
 bool Subject::operator<(const Subject &s) const {
     return code < s.code;
 }
@@ -67,11 +73,11 @@ bool Subject::operator>=(const Subject& s) const{
     return code >= s.code;
 }
 
-ostream& operator << (ostream& os,const Subject& s){
-    os<<s.getCode()<<endl;
-    os<<s.getCourse()<<endl;
-    os<<s.getCredits()<<endl;
-    os<<s.getSchedule()<<endl;
+ostream& operator << (ostream& os,Subject& s){
+    os<<s.code<<endl;
+    os<<s.course<<endl;
+    os<<s.credits<<endl;
+    os<<s.schedule<<endl;
     return os;
 }
 
