@@ -12,7 +12,7 @@ private:
     std::string code;
     Name name;
     Date birthday;
-    Subject subject;
+    Subject course;
     std::string department;
 public:
     Teacher();
@@ -22,7 +22,7 @@ public:
     std::string getCode() const;
     Name getName()const;
     Date getBirthday()const;
-    std::string getSubject()const;
+    Subject getCourse()const;
     std::string getDepartment() const;
 
     //toString
@@ -32,12 +32,12 @@ public:
     void setCode(const std::string &);
     void setName(const Name&);
     void setBirthday(const Date&);
-    void setSubject(const Subject&);
+    void setCourse(const Subject&);
     void setDepartment(const std::string &);
 
     //operadores relacionales
     Teacher& operator = (const Teacher &);
-    
+
     bool operator ==(const Teacher &);
     bool operator !=(const Teacher &);
     bool operator < (const Teacher &);
