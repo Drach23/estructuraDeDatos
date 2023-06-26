@@ -1,7 +1,7 @@
 #include "menu.hpp"
 
 using namespace std;
-Menu::Menu() : numStudents(0) {}  // Inicializar el contador de estudiantes en 0
+Menu::Menu() : numStudents(0),numTeachers(0) {}  // Inicializar el contador de estudiantes en 0
 
 void Menu::start() {
     int option;
@@ -15,11 +15,23 @@ void Menu::start() {
                 break;
             }
             case 2:{
+                addTeacher();
                 break;
             }
             case 3:{
                 showStudents();
                 break;
+            }
+            case 4:{
+                showTeachers();
+            }
+            case 5:{
+                cout<<"Saliendo del programa"<<endl;
+                system("pause");
+                break;
+            }
+            default:{
+                cout<<"seleccione una opcion valida";
             }
         }
     }while (option != 5);
@@ -35,7 +47,7 @@ void Menu::addStudent(){
     cout<<"Cuantos alumnos desea agregar: ";
     cin>>cant;
     cin.ignore();
-    for (int i = 0; i < cant; ++i) {
+    for (int i = numStudents; i < cant; ++i) {
         cout<<"\tIngresa los datos del alumno"<<endl<<endl;
 
         cout<<"Ingresa el codigo del alumno: ";
@@ -86,6 +98,75 @@ void Menu::addStudent(){
 void Menu::showStudents() {
     for (int i = 0; i < numStudents; ++i) {
         cout << students[i].toString() << endl;
+    }
+    cout << endl << endl;
+}
+
+void Menu::addTeacher() {
+    Date myDate;
+    Name myName;
+    Subject myCourse;
+    int cant;
+    string teacher;
+
+    cout<<"\tBienvenido al registro de profesores"<<endl;
+    cout<<"Cuantos profesores desea agregar: ";
+    cin>>cant;
+    cin.ignore();
+    for (int i = numTeachers; i < cant; ++i) {
+        cout<<"\tIngresa los datos del profesor"<<endl<<endl;
+
+        cout<<"Ingresa el codigo del profesor: ";
+        getline(cin,teacher);
+        teachers[i].setCode(teacher);
+
+        cout<<"Apellido: ";
+        getline(cin,teacher);
+        myName.setLast(teacher);
+
+        cout<<"Nombre: ";
+        getline(cin,teacher);
+        myName.setFirst(teacher);
+
+        teachers[i].setName(myName);
+
+        cout<<"Fecha de nacimiento (DD/MM/AAAA) incluyendo diagonales: ";
+        getline(cin,teacher,'/');
+        myDate.setDay(stoi(teacher));
+        getline(cin,teacher,'/');
+        myDate.setMonth(stoi(teacher));
+        getline(cin,teacher);
+        myDate.setYear(stoi(teacher));
+        teachers[i].setBirthday(myDate);
+
+        cout<<"\tDatos del curso que imparte: ";
+        cout<<"Codigo del curso ";
+        getline(cin,teacher);
+        myCourse.setCode(teacher);
+        cout<<"Nombre del curso: ";
+        getline(cin,teacher);
+        myCourse.setCourse(teacher);
+        cout<<"Numero de creditos: ";
+        getline(cin,teacher);
+        myCourse.setCredits(stoi(teacher));
+        cout<<"horario: ";
+        getline(cin,teacher);
+        myCourse.setSchedule(teacher);
+
+        teachers[i].setCourse(myCourse);
+
+        cout<<"Departamento: ";
+        getline(cin,teacher);
+        teachers[i].setDepartment(teacher);
+        cout<<endl<<endl;
+        numTeachers ++;
+    }
+
+}
+
+void Menu::showTeachers() {
+    for (int i = 0; i < numTeachers; ++i) {
+        cout << teachers[i].toString() << endl;
     }
     cout << endl << endl;
 }
