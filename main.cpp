@@ -1,5 +1,6 @@
 #include "menu.hpp"
 #include "student.hpp"
+#include "teacher.hpp"
 using namespace std;
 
 int main(){
