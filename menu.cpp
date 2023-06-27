@@ -24,6 +24,7 @@ void Menu::start() {
             }
             case 4:{
                 showTeachers();
+                break;
             }
             case 5:{
                 cout<<"Saliendo del programa"<<endl;
@@ -47,7 +48,7 @@ void Menu::addStudent(){
     cout<<"Cuantos alumnos desea agregar: ";
     cin>>cant;
     cin.ignore();
-    for (int i = numStudents; i < cant; ++i) {
+    for (int i = 0; i < cant; ++i) {
         cout<<"\tIngresa los datos del alumno"<<endl<<endl;
 
         cout<<"Ingresa el codigo del alumno: ";
