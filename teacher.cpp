@@ -33,15 +33,15 @@ string Teacher::getDepartment() const {
 //toString
 string Teacher::toString() const {
     string result;
-    result = code;
-    result ="|";
-    result = name.toString();
-    result = "|";
-    result = birthday.toString();
-    result = "|";
-    result = course.toString();
-    result = "|";
-    result = department;
+    result += code;
+    result += "|";
+    result += name.toString();
+    result += "|";
+    result += birthday.toString();
+    result += "|";
+    result += course.toString();
+    result += "|";
+    result += department;
     return result;
 }
 //setter
