@@ -1,7 +1,11 @@
 #include "menu.hpp"
-
+#include <vector>
 using namespace std;
-Menu::Menu() : numStudents(0),numTeachers(0) {}  // Inicializar el contador de estudiantes en 0
+//vectores para almacenar los datos de teacher
+vector<Student> students;
+vector<Teacher> teachers;
+
+Menu::Menu() {}  // Inicializar el contador de estudiantes en 0
 
 void Menu::start() {
     int option;
@@ -53,17 +57,19 @@ void Menu::addStudent(){
 
         cout<<"Ingresa el codigo del alumno: ";
         getline(cin,student);
-        students[i].setCode(student);
+        students.push_back(Student());
+        students.back().setCode(student);
 
         cout<<"Apellido: ";
         getline(cin,student);
         myName.setLast(student);
 
+
         cout<<"Nombre: ";
         getline(cin,student);
         myName.setFirst(student);
 
-        students[i].setName(myName);
+        students.back().setName(myName);
 
         cout<<"Fecha de nacimiento (DD/MM/AAAA) incluyendo diagonales: ";
         getline(cin,student,'/');
@@ -72,11 +78,11 @@ void Menu::addStudent(){
         myDate.setMonth(stoi(student));
         getline(cin,student);
         myDate.setYear(stoi(student));
-        students[i].setBirthday(myDate);
+        students.back().setBirthday(myDate);
 
         cout<<"Carrera: ";
         getline(cin,student);
-        students[i].setCareer(student);
+        students.back().setCareer(student);
 
         cout<<"Fecha de inicio (DD/MM/AAAA) incluyendo diagonales: ";
         getline(cin,student,'/');
@@ -86,21 +92,19 @@ void Menu::addStudent(){
         getline(cin,student);
         myDate.setYear(stoi(student));
 
-        students[i].setStartDate(myDate);
+        students.back().setStartDate(myDate);
 
         cout<<"Promedio: ";
         getline(cin,student);
-        students[i].setGrade(stof(student));
+        students.back().setGrade(stof(student));
         cout<<endl<<endl;
-        numStudents ++;
     }
 }
 
 void Menu::showStudents() {
-    for (int i = 0; i < numStudents; ++i) {
-        cout << students[i].toString() << endl;
+    for(const auto& student : students){
+        cout<<student.toString()<<endl<<endl;
     }
-    cout << endl << endl;
 }
 
 void Menu::addTeacher() {
@@ -114,12 +118,13 @@ void Menu::addTeacher() {
     cout<<"Cuantos profesores desea agregar: ";
     cin>>cant;
     cin.ignore();
-    for (int i = numTeachers; i < cant; ++i) {
+    for (int i = 0; i < cant; ++i) {
         cout<<"\tIngresa los datos del profesor"<<endl<<endl;
 
         cout<<"Ingresa el codigo del profesor: ";
         getline(cin,teacher);
-        teachers[i].setCode(teacher);
+        teachers.push_back(Teacher());
+        teachers.back().setCode(teacher);
 
         cout<<"Apellido: ";
         getline(cin,teacher);
@@ -129,7 +134,7 @@ void Menu::addTeacher() {
         getline(cin,teacher);
         myName.setFirst(teacher);
 
-        teachers[i].setName(myName);
+        teachers.back().setName(myName);
 
         cout<<"Fecha de nacimiento (DD/MM/AAAA) incluyendo diagonales: ";
         getline(cin,teacher,'/');
@@ -138,7 +143,7 @@ void Menu::addTeacher() {
         myDate.setMonth(stoi(teacher));
         getline(cin,teacher);
         myDate.setYear(stoi(teacher));
-        teachers[i].setBirthday(myDate);
+        teachers.back().setBirthday(myDate);
 
         cout<<"\tDatos del curso que imparte: ";
         cout<<"Codigo del curso ";
@@ -154,20 +159,18 @@ void Menu::addTeacher() {
         getline(cin,teacher);
         myCourse.setSchedule(teacher);
 
-        teachers[i].setCourse(myCourse);
+        teachers.back().setCourse(myCourse);
 
         cout<<"Departamento: ";
         getline(cin,teacher);
-        teachers[i].setDepartment(teacher);
+        teachers.back().setDepartment(teacher);
         cout<<endl<<endl;
-        numTeachers ++;
     }
 
 }
 
 void Menu::showTeachers() {
-    for (int i = 0; i < numTeachers; ++i) {
-        cout << teachers[i].toString() << endl;
+    for(const auto& teacher : teachers){
+        cout << teacher.toString()<<endl<<endl;
     }
-    cout << endl << endl;
 }
